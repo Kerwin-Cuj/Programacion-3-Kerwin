@@ -32,7 +32,7 @@ Instrucciones de uso
 
 ---
 
-## 📂 Archivos CSV
+-Archivos CSV
 El proyecto incluye tres archivos de prueba:
 - `data1.csv` = números del 1 al 150
 - `data2.csv` = códigos alfanuméricos (A001, A002, … A150)
