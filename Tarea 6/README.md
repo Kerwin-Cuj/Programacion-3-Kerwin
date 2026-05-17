@@ -1,52 +1,45 @@
-from btree import BTree
-from utils import load_csv
+Proyecto Árbol B Kerwin en Python
 
-def main():
-    print("=== Proyecto Árbol B Kerwin ===")
-    grado = int(input("Ingrese el grado del Árbol B: "))
-    grado_max = grado - 1
-    grado_min = grado_max // 2
+Kerwin Israel Cuj Pernillo
+Carnet:9490-24-12144
+Seccion: A
 
-    print(f"Grado máximo: {grado_max}, Grado mínimo: {grado_min}")
+---
 
-    btree = BTree(grado_min, grado_max)
+-Descripción
+Este proyecto implementa un Árbol B en Python, con soporte para:
+- Inserción de claves
+- Búsqueda de claves
+- Carga de datos desde archivos CSV
+- Exportación y visualización gráfica con Graphviz
 
-    while True:
-        print("\n--- Menú Árbol B Kerwin ---")
-        print("1. Insertar clave")
-        print("2. Buscar clave")
-        print("3. Eliminar clave")
-        print("4. Cargar CSV")
-        print("5. Exportar gráfico")
-        print("6. Salir")
+El objetivo es mostrar cómo funciona un Árbol B y poder visualizarlo de manera práctica.
 
-        opcion = input("Seleccione una opción: ")
 
-        if opcion == "1":
-            clave = input("Ingrese la clave: ")
-            btree.insert(clave)
-        elif opcion == "2":
-            clave = input("Ingrese la clave a buscar: ")
-            print("Encontrada" if btree.search(clave) else "No encontrada")
-        elif opcion == "3":
-            clave = input("Ingrese la clave a eliminar: ")
-            btree.delete(clave)
-        elif opcion == "4":
-            archivo = input("Ingrese nombre del archivo CSV: ")
-            datos = load_csv(archivo)
-            for d in datos:
-                btree.insert(d)
-            print(f"Se cargaron {len(datos)} registros desde {archivo}")
-            # Mostrar gráfico inmediatamente
-            dot = btree.export_graphviz()
-            dot.render("ArbolBKerwin_graph", format="png", view=True)
-        elif opcion == "5":
-            dot = btree.export_graphviz()
-            dot.render("ArbolBKerwin_graph", format="png", view=True)
-            print("Gráfico exportado y abierto en pantalla.")
-        elif opcion == "6":
-            break
+Instrucciones de uso
+1. Abrir el proyecto en Visual Studio 2019.
+2. Ejecutar el archivo `main.py`.
+3. Ingresar el grado del Árbol B cuando el sistema lo solicite.
+   - El programa calcula automáticamente:
+     - Grado máximo = grado ingresado - 1
+     - Grado mínimo = grado máximo / 2
+4. Usar el menú interactivo para:
+   - Insertar claves manualmente
+   - Buscar claves
+   - Eliminar claves (pendiente de implementación)
+   - Cargar datos desde CSV
+   - Exportar y visualizar el gráfico del Árbol B
 
-if __name__ == "__main__":
-    main()
-    input("Presiona Enter para salir...")
+---
+
+## 📂 Archivos CSV
+El proyecto incluye tres archivos de prueba:
+- `data1.csv` = números del 1 al 150
+- `data2.csv` = códigos alfanuméricos (A001, A002, … A150)
+- `data3.csv` = usuarios (user001, user002, … user150)
+
+Estos archivos se pueden cargar desde el menú con la opción 4 (Cargar CSV).
+
+
+Representación gráfica
+El Árbol B se exporta y se abre automáticamente en pantalla usando Graphviz
